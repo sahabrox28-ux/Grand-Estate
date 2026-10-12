@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "NewsItem": {
+      "title": "NewsItem",
+      "description": "An announcement or news item.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "date": { "type": "string" },
+        "author": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["title", "content", "date", "author", "createdAt"]
+    },
+    "Member": {
+      "title": "Member",
+      "description": "A member of the roster.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "rank": { "type": "string" },
+        "role": { "type": "string" },
+        "joinDate": { "type": "string" },
+        "level": { "type": "number" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["name", "rank", "role", "joinDate", "level", "createdAt"]
+    },
+    "Contact": {
+      "title": "Contact",
+      "description": "A contact method.",
+      "type": "object",
+      "properties": {
+        "platform": { "type": "string" },
+        "details": { "type": "string" },
+        "url": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["platform", "details", "url", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/news/{newsId}": {
+      "schema": { "$ref": "NewsItem" },
+      "description": "List of announcements."
+    },
+    "/members/{memberId}": {
+      "schema": { "$ref": "Member" },
+      "description": "The family roster."
+    },
+    "/contacts/{contactId}": {
+      "schema": { "$ref": "Contact" },
+      "description": "Contact methods."
+    }
+  }
+}
